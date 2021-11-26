@@ -6,18 +6,20 @@ function Leaderboard({ usersId, users }) {
       <div>
         <ul>
           {usersId.map((user) => (
-            <div key={user.id} className="question">
-              <div>Name: {users[user].name}</div>
-              <img
-                src={users[user].avatarURL}
-                style={{ width: "70px", height: "70px", margin: "auto" }}
-                alt={users[user].name}
-              />
-              <div>
-                Number of Answers: {Object.keys(users[user].answers).length}
+            <li key={users[user].id}>
+              <div className="question">
+                <div>Name: {users[user].name}</div>
+                <img
+                  src={users[user].avatarURL}
+                  style={{ width: "70px", height: "70px", margin: "auto" }}
+                  alt={users[user].name}
+                />
+                <div>
+                  Number of Answers: {Object.keys(users[user].answers).length}
+                </div>
+                <div>Number of Questions: {users[user].questions.length}</div>
               </div>
-              <div>Number of Questions: {users[user].questions.length}</div>
-            </div>
+            </li>
           ))}
         </ul>
       </div>
