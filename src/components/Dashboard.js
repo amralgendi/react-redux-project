@@ -40,14 +40,14 @@ function mapStateToProps({ questions, authedUser, users }, { id }) {
         questions[id].optionOne.votes.includes(authedUser) ||
         questions[id].optionTwo.votes.includes(authedUser)
     )
-    .sort((a, b) => (questions[b].timestamp = questions[a].timestamp));
+    .sort((a, b) => questions[b].timestamp - questions[a].timestamp);
   const unanswered = questionids
     .filter(
       (id) =>
         !questions[id].optionOne.votes.includes(authedUser) &&
         !questions[id].optionTwo.votes.includes(authedUser)
     )
-    .sort((a, b) => (questions[b].timestamp = questions[a].timestamp));
+    .sort((a, b) => questions[b].timestamp - questions[a].timestamp);
 
   return {
     authedUser,

@@ -8,6 +8,8 @@ import Nav from "./Nav";
 import { Route, Routes } from "react-router-dom";
 import NewPoll from "./NewPoll";
 import Leaderboard from "./Leaderboard";
+import QuestionDetails from "./QuestionDetails";
+import Error from "./Error";
 
 function App(props) {
   useEffect(() => {
@@ -29,8 +31,9 @@ function App(props) {
             <Route
               exact
               path="/questions/:questionId"
-              element={<div>sup</div>}
+              element={<QuestionDetails />}
             />
+            <Route exact path="/error" element={<Error />} />
           </Routes>
         </>
       )}
@@ -42,6 +45,7 @@ function mapStateToProps({ authedUser, users, questions }) {
   return {
     loggedIn: authedUser,
     users,
+    questions,
   };
 }
 

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
+
 function Leaderboard({ usersId, users }) {
-  console.log(users);
   return (
     <div>
       <div>
@@ -8,6 +8,10 @@ function Leaderboard({ usersId, users }) {
           {usersId.map((user) => (
             <div className="question">
               <div>Name: {users[user].name}</div>
+              <img
+                src={users[user].avatarURL}
+                style={{ width: "70px", height: "70px", margin: "auto" }}
+              />
               <div>
                 Number of Answers: {Object.keys(users[user].answers).length}
               </div>
