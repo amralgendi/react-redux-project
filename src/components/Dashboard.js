@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Question from "./Question";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function Dashboard({ users, answered, unanswered }) {
   const [questionType, setQuestionType] = useState("unanswered");

@@ -18,6 +18,7 @@ const QuestionDetails = ({ questions, authedUser, users }) => {
       <img
         src={user.avatarURL}
         style={{ width: "70px", height: "70px", margin: "auto" }}
+        alt={user.name}
       />
       <div>created by: {user.name}</div>
       <div className="votes">

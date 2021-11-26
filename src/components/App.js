@@ -1,7 +1,7 @@
 import "../App.css";
 import { connect } from "react-redux";
 import { receiveData } from "../actions/shared";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 import Nav from "./Nav";
@@ -11,15 +11,14 @@ import Leaderboard from "./Leaderboard";
 import QuestionDetails from "./QuestionDetails";
 import Error from "./Error";
 
-function App(props) {
+function App({ authedUser, loggedIn, dispatch }) {
   useEffect(() => {
-    props.dispatch(receiveData());
-  }, []);
+    dispatch(receiveData());
+  }, [dispatch]);
 
-  console.log(props);
   return (
     <div className="App">
-      {props.loggedIn === null ? (
+      {loggedIn === null ? (
         <Login />
       ) : (
         <>
